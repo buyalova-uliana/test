@@ -19,20 +19,20 @@ class binary_search_tree_t
 
     void DeleteSubtree(node_t* node);
     node_t* CopySubtree(node_t* node);
-    void BinarySubtreesComparison(node_t* node_1, node_t* node_2);
+    //можно ли функции swap передать binary_search_tree_t& tree_1, binary_search_tree_t& tree_2? Можно ли 
+    // передавать ссылки, а потом менять местами поля объектов, которые являются указателями.
+    void swap(node_t* m_root, node_t* m_root_other);
     std::ostream& print_(std::ostream& os, node_t* node, int space) const;
 
     public:
     binary_search_tree_t(): m_root(nullptr){};
     binary_search_tree_t(uint64_t root_value);
-    void addElement (uint64_t value);
-    void findElement(uint64_t value);
-
-    // По желанию
-    // Конструктор копирования, оператор =
     binary_search_tree_t(const binary_search_tree_t& other);
     binary_search_tree_t& operator=(const binary_search_tree_t& other);
    ~binary_search_tree_t();
+
+    void addElement (uint64_t value);
+    void findElement(uint64_t value);
 
    friend std::ostream& operator<<(std::ostream& os, const binary_search_tree_t& obj); 
 };

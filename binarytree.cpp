@@ -28,13 +28,11 @@ node_t* binary_search_tree_t::CopySubtree(node_t* node)
     return nullptr;
 }
 
-void binary_search_tree_t::BinarySubtreesComparison(node_t* node, node_t* other_node)
+void binary_search_tree_t::swap(node_t* m_root, node_t* m_root_other)
 { 
-    if(true)
-    {
-
-    }
-    return;
+    node_t* tmp = m_root;
+    m_root = m_root_other;
+    m_root_other = tmp;
 }
 
 binary_search_tree_t::binary_search_tree_t(const binary_search_tree_t& other)
@@ -48,6 +46,9 @@ binary_search_tree_t& binary_search_tree_t::operator=(const binary_search_tree_t
     {
         return *this;
     }
+    binary_search_tree_t tmp(other);
+    swap(m_root, tmp.m_root);
+    return *this;
 }
 
 void binary_search_tree_t::addElement(uint64_t value)
@@ -138,6 +139,8 @@ int main()
     b.findElement(15);
     b.findElement(100);
 
+    a = b;
+    std::cout << a;
 
     return 0;
 }
